@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Hello from '@/components/Hello'
+import Home from '@/components/Home'
+import DemoRoot from '@/components/demo/index'
+import List from '@/components/demo/list'
 
 Vue.use(Router)
 
@@ -8,8 +10,20 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Hello',
-      component: Hello
+      name: 'Home',
+      component: Home
+    },
+    {
+      path: '/demo',
+      name: 'DemoRoot',
+      component: DemoRoot,
+      children: [
+        {
+          path: 'list',
+          name: 'List',
+          component: List
+        }
+      ]
     }
   ]
 })
